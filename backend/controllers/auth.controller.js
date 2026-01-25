@@ -23,6 +23,7 @@ export async function register(req, res) {
             token: generateToken(user),
         })
     } catch (error) {
+         console.error('REGISTER ERROR:', error)
         res.status(500).json({ message: 'Server error' })
     }
 }

@@ -3,6 +3,9 @@ import express from 'express'
 import cors from 'cors'
 import dbConnect from './config/db.js'
 
+import authRoutes from './routes/auth.routes.js'
+import taskRoutes from './routes/task.routes.js'
+
 dotenv.config()
 dbConnect();
 
@@ -15,6 +18,8 @@ app.use(cors({
 }))
 
 app.get('/',(_,res)=> res.send("api running"))
+app.use('/api/auth',authRoutes)
+app.use('/api/task',taskRoutes)
 
 
 const PORT = process.env.PORT || 5000;

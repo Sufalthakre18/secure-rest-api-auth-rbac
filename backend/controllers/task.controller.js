@@ -8,7 +8,7 @@ export async function createTask(req, res) {
         const task = await Task.create({
             title,
             description,
-            user: req.user._id,
+            user: req.user.id,
         })
 
         res.status(201).json({
@@ -16,13 +16,14 @@ export async function createTask(req, res) {
             task,
         })
     } catch (error) {
+        console.error("Error",error)
         res.status(500).json({ message: 'Server error to create task' })
     }
 }
 
 export async function getTasks(req, res) {
     try {
-        const tasks = await Task.find({ user: req.user._id })
+        const tasks = await Task.find({ user: req.user.id })
         res.json(tasks)
     } catch (error) {
         res.status(500).json({ message: 'Server error to get all tasks' })
@@ -34,7 +35,7 @@ export async function getTaskById(req, res) {
     try {
         const task = await Task.findOne({
             _id: req.params.id,
-            user: req.user._id,
+            user: req.user.id,
         })
 
         if (!task) return res.status(404).json({ message: 'Task not found' })
@@ -49,7 +50,7 @@ export async function getTaskById(req, res) {
 export async function updateTask(req, res) {
     try {
         const task = await Task.findOneAndUpdate(
-            { _id: req.params.id, user: req.user._id },
+            { _id: req.params.id, user: req.user.id },
             req.body,
             { new: true }
         )
@@ -71,7 +72,7 @@ export async function deleteTask(req, res) {
     try {
         const task = await Task.findOneAndDelete({
             _id: req.params.id,
-            user: req.user._id,
+            user: req.user.id,
         })
 
         if (!task) {

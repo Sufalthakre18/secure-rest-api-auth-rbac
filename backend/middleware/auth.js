@@ -1,6 +1,6 @@
-import { verifyToken } from "../utils/tokenUtils";
+import { verifyToken } from '../utils/tokenUtils.js';
 
-export default function auth(req, res, next){
+export default function auth(req, res, next) {
   const authHeader = req.headers.authorization;
 
   if (!authHeader || !authHeader.startsWith('Bearer ')) {
@@ -10,10 +10,10 @@ export default function auth(req, res, next){
   const token = authHeader.split(' ')[1];
 
   try {
-    const decoded = verifyToken(token)
-    req.user = decoded; 
+    const decoded = verifyToken(token);
+    req.user = decoded; // 
     next();
   } catch (error) {
     return res.status(401).json({ message: 'Invalid token' });
   }
-};
+}
