@@ -25,6 +25,13 @@ export default function Register() {
     setError('');
     setLoading(true);
 
+    // ✅ FRONTEND PASSWORD VALIDATION
+    if (formData.password.length < 6) {
+      setError('Password must be at least 6 characters');
+      setLoading(false);
+      return;
+    }
+
     try {
       const response = await API.post('/auth/register', formData);
       Cookies.set('token', response.token, { expires: 1 });
@@ -59,7 +66,7 @@ export default function Register() {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 outline-none"
               placeholder="Enter your name"
               required
             />
@@ -74,7 +81,7 @@ export default function Register() {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 outline-none"
               placeholder="Enter your email"
               required
             />
@@ -89,7 +96,7 @@ export default function Register() {
               name="password"
               value={formData.password}
               onChange={handleChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 outline-none"
               placeholder="Min 6 characters"
               required
             />
@@ -98,7 +105,7 @@ export default function Register() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition duration-200 transform hover:scale-[1.02]"
+            className="w-full bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 disabled:bg-gray-400"
           >
             {loading ? 'Creating Account...' : 'Register'}
           </button>
