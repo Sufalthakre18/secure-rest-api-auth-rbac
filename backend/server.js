@@ -14,7 +14,7 @@ const app = express()
 
 app.use(express.json())
 app.use(cors({
-  origin: 'https://task-manager-frontend-pi-dun.vercel.app/',
+  origin: 'https://task-manager-frontend-pi-dun.vercel.app',
   credentials: true
 }));
 
