@@ -14,8 +14,10 @@ const app = express()
 
 app.use(express.json())
 app.use(cors({
-    origin: "*", credentials: true
-}))
+  origin: 'http://localhost:3000',
+  credentials: true
+}));
+
 
 app.get('/',(_,res)=> res.send("api running"))
 app.use('/api/auth',authRoutes)
