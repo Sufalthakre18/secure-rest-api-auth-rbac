@@ -1,4 +1,4 @@
-# 📌 Backend Developer Intern – Project Assignment
+# 📌 Tasks management Project Assignment
 
 This project is a **Scalable REST API with Authentication & Role-Based Access Control**, along with a **basic frontend UI** to interact with the APIs.
 
