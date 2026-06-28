@@ -9,7 +9,7 @@ The goal of this assignment is to demonstrate backend fundamentals such as **sec
 ## 🚀 Live Deployment
 
 * **Frontend (Next.js + Tailwind CSS)**
-  👉 [https://task-manager-frontend-pi-dun.vercel.app/](https://task-manager-frontend-pi-dun.vercel.app/)
+  👉 https://secure-rest-api-auth-rbac.vercel.app/
 
 * **Backend (Node.js + Express + MongoDB)**
   👉 https://secure-rest-api-auth-rbac.onrender.com/
