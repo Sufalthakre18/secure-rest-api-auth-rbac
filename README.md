@@ -12,7 +12,7 @@ The goal of this assignment is to demonstrate backend fundamentals such as **sec
   👉 [https://task-manager-frontend-pi-dun.vercel.app/](https://task-manager-frontend-pi-dun.vercel.app/)
 
 * **Backend (Node.js + Express + MongoDB)**
-  👉 [https://task-api-backend-2mmo.onrender.com/](https://task-api-backend-2mmo.onrender.com/)
+  👉 https://secure-rest-api-auth-rbac.onrender.com/
 
 ---
 
